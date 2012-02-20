@@ -1,0 +1,15 @@
+<% form_tag :action=> 'create' do -%>
+	 	<legend>
+
+   <%=  error_messages_for :album %>
+
+	<table cellpadding="20" align="left" width="100%">
+			<%= render :partial => 'albums/form'%>
+	</table>
+		 </legend>
+
+ <% end -%>
+
+
+
+

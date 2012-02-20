@@ -1,0 +1,17 @@
+			
+			<div align="left">
+			ID:<%=@artist.id%><br><br>
+			Artist:<u><%= @artist.name %></u><br>	<br>		
+			Active_years:<%= @artist.active_users%>	<br><br>		
+			Genere:<%= @artist.biography%>			<br><br>
+			Albums:  <% for album in @artist.albums %>
+			       	 <br><b><%= link_to album.tittle,:action => 'show',:controller => 'albums', :id => album.id %></b>
+
+					  <% end %>
+			<%#= @artist.albums.collect{|obj| "<br>" + obj.tittle } -%><br><br>			
+		   <b><%= link_to("Edit",:action => 'edit',:id => @artist.id)%></b>
+		   <b><%= link_to ('Back', :action => 'index',:id => @artist.id) %></b></td>
+
+		  </div>
+<%= link_to 'Edit', edit_album_path(@artist) %> |
+<%= link_to 'Back', albums_path %>

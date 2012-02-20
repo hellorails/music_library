@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Music Library</title>
+<%= stylesheet_link_tag "jquery-ui-1.8.16.custom.css" %>
+
+<%= stylesheet_link_tag "scaffold" %>
+<%= stylesheet_link_tag "depart", :media => "all" %>
+<%= stylesheet_link_tag "form", :media => "all" %>
+<%= stylesheet_link_tag "calendar" %>
+<%= javascript_include_tag "jquery" %>
+<%= javascript_include_tag "jquery-ui-1.8.16.custom.min.js" %>
+<%= javascript_include_tag "jjquery-1.6.2.min.js" %>
+
+<%= javascript_include_tag :defaults %>
+<%#= javascript_include_tag "calendar" %>
+
+</head>
+<body id="store">
+<div id="banner" >
+ 
+<%= @page_title || "   " %>
+</div>
+<div id="columns" >
+<div id="side" >
+<%= link_to "Artist Home",:controller=>"artists",:action=>"index"%><br />
+<%= link_to "Albums Home",:controller=>"albums",:action=>"index"%><br />
+<%= link_to "Features Home",:controller=>"features",:action=>"index"%><br />
+<%#= link_to "Update",:controller=>"departments",:action=>"new"%></a><br />
+<div class="img" id ="image">
+ <%= image_tag("beach_yoga.jpg",:width => 200) %>
+</div>
+</div>
+<div id="main" >
+	
+	<div align="right">	</div>
+<%= yield %>
+</div>
+</div>
+</body>
+</html>
+
+<script>
+	window.onload =  function() {
+
+var myImage = document.getElementById("image");
+var imageArray = ["/public/images/calender.png","/public/images/winery_sign.jpg"]
+
+var imageIndex = 0;
+
+function changeImage() {
+	myImage.setAttribute("src",imageArray[imageIndex]);
+	imageIndex++;
+	if (imageIndex >= imageArray.length) {
+		imageIndex = 0;
+	}
+}
+
+var intervalHandle = setInterval(changeImage,2000);
+
+myImage.onclick =  function() {
+	clearInterval(intervalHandle);
+};
+
+};
+//,"winery_sign.jpg","lunch.jpg",
+//				  "bigSur.jpg","flag_photo.jpg","mission_look.jpg"];
+
+
+</script>
+
+
+
+
+
+

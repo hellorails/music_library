@@ -1,0 +1,100 @@
+<% @page_tittle = "list"%>
+
+<h1> Music library Store</h1>
+<h1>Your Shopping Cart</h1>
+<!-- PROD 1 -->
+<div style="padding:30px 0 0 50px;">
+<table style="width:500px; border-collapse: collapse; ">
+<% for item  in @cart.items %>
+<% row_color = cycle("CCCCCC","FFFFFF")%>
+<tr style="background: #<%= row_color %>;">
+	<td><%= image_tag(item.album.image_path,:size=>"60x60") %></td>
+	<td><p style="font-size:14px; font-weight: bold;"><%= item.album.tittle %></p>	</td>
+	<td><p style="font-size:14px; font-weight: bold;"><%=  item.album.artist.name if item.album.artist %></p>
+	<td><p style="font-size:12px;"><%=  item.quantity %></p></td>
+	<td><p style="font-size:12px;"><%=  number_to_currency(item.price) %></p></td>
+	<td><%= link_to 'Remove Item',:action => 'remove_from_cart',:id => item.album.id %></td>
+	</td>
+	
+</tr>	
+<% end -%>
+
+<tr>
+	<td colspan="5">&nbsp</td>
+</tr>
+	
+<tr style="color: red; font-weight: bold; font-size: 13px"">
+	<td></td>
+	<td>Shopping Cart Total</td>
+	<td></td>
+	<td></td>
+	<td><%= number_to_currency(@cart_price = @cart.total_price) %></td></div>
+</tr>
+<tr>
+	<td colspan="5">&nbsp</td>
+</tr>
+
+<tr>
+	<td colspan="5">&nbsp</td>
+</tr>
+
+<tr>
+	<td colspan="6" align="center"> <h2><%= link_to 'continue shopping',:action => 'list' %></h2> </td>
+	
+</tr>
+
+
+<% form_tag :action=> 'save_order' do -%>
+<%= error_messages_for :artist %>
+
+
+<table cellpadding="25" width="60%">
+
+
+	
+
+
+<tr>
+		<td> <b>First Name</b>   </td>
+		<td> : </td>
+		<td>	 <%= text_field 'customer', 'first_name' %>	</td>
+	</tr>
+	
+	<tr><br>
+		<td>  <b>Last Name</b>   </td>
+		<td> : </td>
+		<td> <%= text_field 'customer', 'last_name' %></td>
+	</tr>
+
+	<tr>
+		<td>  <b>Zipcode</b>   </td>
+		<td> : </td>
+		<td> <%= text_field 'customer', 'zipcode' %>
+	
+		</td>
+
+	</tr>
+		<tr>
+		<td>  <b>Credit card</b>   </td>
+		<td> : </td>
+		<td> <%= text_field 'credit', 'card' %>
+	
+		</td>
+
+	</tr>
+
+		<tr>
+		<td></td>
+		<td></td>
+		<td align="center"> <%= image_submit_tag("1878759-submit-button.jpg",:height => '50', :width => '90') %></td>
+	</tr>
+
+	  
+</table>
+
+ <% end -%>
+
+<script>
+	
+
+<div> The Time in now <%= Time.now.strftime("%I:%M on %A %B %d,%y")%></div>

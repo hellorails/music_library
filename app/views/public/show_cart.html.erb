@@ -1,0 +1,52 @@
+<% @page_tittle = "list"%>
+
+<h1> Music library Store</h1>
+<h1>Your Shopping Cart</h1>
+<!-- PROD 1 -->
+<div style="padding:30px 0 0 50px;">
+<table style="width:500px; border-collapse: collapse; ">
+<% for item  in @cart.items %>
+<% row_color = cycle("CCCCCC","FFFFFF")%>
+<tr style="background: #<%= row_color %>;">
+	<td><%= image_tag(item.album.image_path,:size=>"60x60") %></td>
+	<td><p style="font-size:14px; font-weight: bold;"><%= item.album.tittle %></p>	</td>
+	<td><p style="font-size:14px; font-weight: bold;"><%=  item.album.artist.name if item.album.artist %></p>
+	<td><p style="font-size:12px;"><%=  item.quantity %></p></td>
+	<td><p style="font-size:12px;"><%=  number_to_currency(item.price) %></p></td>
+	<td><%= link_to 'Remove Item',:action => 'remove_from_cart',:id => item.album.id %></td>
+	</td>
+	
+</tr>	
+<% end -%>
+
+<tr>
+	<td colspan="5">&nbsp</td>
+</tr>
+	
+<tr style="color: red; font-weight: bold; font-size: 13px"">
+	<td></td>
+	<td>Shopping Cart Total</td>
+	<td></td>
+	<td></td>
+	<td><%= number_to_currency(@cart_price = @cart.total_price) %></td></div>
+</tr>
+<tr>
+	<td colspan="5">&nbsp</td>
+</tr>
+
+<tr>
+	<td colspan="5">&nbsp</td>
+</tr>
+
+<tr>
+	<td colspan="2" align="center"> <h2><%= link_to 'continue shopping',:action => 'list' %></h2> </td>
+	<td colspan="2" align="center"> <h2><%= link_to 'checkout',:action => 'check_out' %></h2> </td>
+	<td colspan="2" align="left"> <h2><%= link_to 'Emptying Cart ',{:action => 'empty_cart'},:confirm => 'Are you sure?' %></h2></td>
+</tr>
+
+</table>
+</div><br>
+<div style="padding:0px 0px 0px 10px;"><div style="padding:0px 5px 0px 200px;"><h2></h2></div></div><br>
+
+
+<div> The Time in now <%= Time.now.strftime("%I:%M on %A %B %d,%y")%></div>

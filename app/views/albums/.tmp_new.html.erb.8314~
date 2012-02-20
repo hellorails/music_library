@@ -1,0 +1,43 @@
+
+
+
+<% form_tag :action=> 'create' do -%>
+<%= error_messages_for :album %>
+
+
+<table cellpadding="25" width="60%">
+
+
+	 <%= render :partial => 'albums/form' %>
+	  
+</table>
+
+ <% end -%>
+
+<script>
+	
+	
+
+	
+// on focus  
+	var tittle = document.getElementById("albums_tittle");
+
+tittle.onfocus = function() {
+	if ( tittle.value == "Your Tittle") {
+		tittle.value = "";
+	}
+};
+
+tittle.onblur = function() {
+	if ( tittle.value == "") {
+		tittle.value = "Your Tittle";
+	}
+}; 
+
+
+
+</script>
+
+
+
+

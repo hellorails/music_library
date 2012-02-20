@@ -1,0 +1,23 @@
+<table class="altrowstable" id="alternatecolor" width="60%">
+   <th>Id</th>
+   <th>Tittle</th>
+   <th>albums Name</th>
+   <th>Release Date</th>
+   <th>Genere</th>
+   <th>Feature</th>
+   <th colspan="2">Options</th>
+<% for albums in @albums %>
+<tr>
+	<td><%= albums.id %></td>
+	<td><%= albums.tittle%></td>
+	<td><%= albums.artist %></td>
+	<td><%= albums.release_date%></td>
+	<td><%= albums.genere %></td>
+	<td><%= albums.feature %></td>
+	<td><b><%= link_to("Edit",:action => 'edit',:id => albums.id)%></b></td>
+	<td><b><%= link_to ('Destroy', :confirm => 'Are you sure?', :action => 'delete',:id => albums.id) %></b></td>
+</tr>
+<% end %>
+</table>
+<br>
+<div align="left"><b><%= link_to("New albums",:action => 'new', :car => "dev")%></b></div>

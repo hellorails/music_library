@@ -1,0 +1,13 @@
+<h1>Editing album</h1>
+
+<% form_tag :controller => 'artists', :action=> 'update' do -%>
+<%= error_messages_for :album %>
+
+
+<table cellpadding="25" >
+
+	 <%= render :partial => 'artists/form' %>
+</table>
+
+ <% end -%>
+

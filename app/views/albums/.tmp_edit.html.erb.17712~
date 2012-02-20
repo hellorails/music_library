@@ -1,0 +1,8 @@
+<h1>Editing album</h1>
+<% form_tag :action=> 'update' do -%>
+<div class="box">  
+<%= error_messages_for :album %>
+<%= render :partial => 'albums/form'%>
+</div>
+ <% end -%>
+

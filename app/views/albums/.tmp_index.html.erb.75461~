@@ -1,0 +1,23 @@
+<table class="altrowstable" id="alternatecolor" width="60%">
+   <th>Id</th>
+   <th>Tittle</th>
+   <th>albums Name</th>
+   <th>Release Date</th>
+   <th>Genere</th>
+   <th>Feature</th>
+   <th colspan="2">Options</th>
+<% for album in @albums %>
+<tr>
+	<td><%= album.id %></td>
+	<td><%= album.tittle%></td>
+	<td><%= album.artist.name%> <%# a = Artist.find(:all,:conditions => ["id =?",album.artist_id]) %><%#=  a.collect {|a| a.name} %></td>
+	<td><%= album.release_date%></td>
+	<td><%= album.genere %></td>
+	<td><%= album.feature %></td>
+	<td><b><%= link_to("Edit",:action => 'edit',:id => album.id)%></b></td>
+	<td><b><%= link_to ('Destroy', :confirm => 'Are you sure?', :action => 'delete',:id => album.id) %></b></td>
+</tr>
+<% end %>
+</table>
+<br>
+<div align="left"><b><%= link_to("New albums",:action => 'new', :car => "dev")%></b></div>

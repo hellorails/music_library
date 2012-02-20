@@ -1,0 +1,62 @@
+<head>
+<%= javascript_include_tag "jquery" %>
+<%= javascript_include_tag "jquery-ui-1.8.16.custom.min.js" %>
+<%= javascript_include_tag "jjquery-1.6.2.min.js" %>
+<%= stylesheet_link_tag "jquery-ui-1.8.16.custom.css" %>
+</head>
+<label>
+	<span>Tittle</b></span> 
+	 <%= text_field 'album', 'tittle' ,:class => 'input_text'%>
+</label>
+
+<label>
+	<span><b>album Name</b></span>  
+ 	<%=  collection_select('album', 'artist_id',Artist.find(:all), :id, :name, {:prompt => "-------Select Artist-------"}, :class => 'input_text') %>
+</label> 
+	  
+<label>
+	<span><b>Release date</b></span>  
+ 
+    <%= text_field 'date', 'picker', :readonly =>true, :class => 'input_text' %>
+
+
+</label>
+
+<label>
+	<span>  <b>Genere</b></span> 
+    <%= text_field 'album', 'genere', :class => 'input_text' %>
+</label>
+	  
+
+	  
+<label>
+	<span><b>Feature</b> </span></lablel>
+	<% for feature in @features%><div>
+	<div align="center">	<b><%= feature.name%></b>  <%= check_box_tag('feature_list[]',feature.id,@album.features.collect{|obj| obj.id}.include?(feature.id),{:class => 'check'}) %></div>
+    </div>	
+	<% end %>
+
+
+<label>
+	<div align="left">
+	<%= submit_tag("Submit", :class => "button") %>
+	</div>
+</label>  
+	  
+	
+</div>
+
+
+
+<script>
+	$(function() {
+		$( "#date_picker" ).datepicker({
+			showWeek: true,
+			firstDay: 1,
+			//showOn: "button",
+		//	buttonImage: "images/calendar.gif",
+		//	buttonImageOnly: true
+		});
+
+	});
+</script>

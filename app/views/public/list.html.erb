@@ -1,0 +1,29 @@
+<% row_color = cycle("CCCCC","FFFFF")%>
+<% for album in @albums %>
+<!-- PROD 1 -->
+<div style="<%= row_color %>">
+<div class="prod">
+<div class="prodimg"><a href="#"><%= image_tag(album.image_path ,:width => "119" , :height=>"123")  %>
+	<img src="images/prod1.jpg" alt="" width="119" height="123" border="0" /></a></div>
+<div class="txt">
+<p><a href="#"><%= album.tittle %></a><br/><%=  album.artist.name if album.artist %><br /><br />
+  <a href="#" class="info">Diam nonumy consetetur sadi lorem sed lorem ipsum consetetur pscing elitr</a></p>
+</div>
+
+<div class="price"><p><%= number_to_currency(album.price)%></p></div>
+
+<div class="action">
+<ul>
+<li class="details"><a href="#" title="Details"><%= album.release_date.strftime("%Y") if album.release_date%></a><br>Genre <%= album.genere%></li>
+<li class="add"><%= link_to 'Add to Cart',:action => 'add_to_cart',:id => album.id %></a></li>
+</ul>
+</div>
+</div>
+</div>
+<% end %>
+<h2></h2>
+<%#= pagination_links  @car_pages if @car_pages.page_count > 1 %>
+
+<div> The Time in now <%= Time.now.strftime("%I:%M on %A %B %d,%y")%></div>
+<div id="pg">
+<h2><%= will_paginate @albums %></div></h2>

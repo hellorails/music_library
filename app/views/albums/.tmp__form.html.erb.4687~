@@ -1,0 +1,55 @@
+	
+
+
+<tr>
+		<td>Tittle   </td>
+		<td> : </td>
+		<td>	 <%= text_field 'album', 'tittle' %>	</td>
+	</tr>
+	
+	<tr><br>
+		<td>  <b>album Name</b>   </td>
+		<td> : </td>
+		<td> <%= text_field 'album', 'artist' %></td>
+	</tr>
+
+	<tr>
+		<td>  <b>Release date</b>   </td>
+		<td> : </td>
+		<td> <%= text_field 'album', 'release_date', :readonly =>true %>
+		<img src="/images/calender.png" alt="Icon" onClick="setYears(1947, 2020);  showCalender(this, 'album[release_date]');"/>
+			  <%= render :partial => 'albums/date' %>	
+
+		</td>
+
+	</tr>
+	
+	<tr>
+		<td>  <b>Genere</b>   </td>
+		<td> : </td>
+		<td> <%= text_field 'album', 'genere' %></td>
+	</tr>
+
+	<tr>
+		<td>  <b>Feature</b>   </td>
+		<td> : </td>
+		<td> <%= text_field 'album', 'feature' %></td>
+	</tr>
+
+    	 <tr>
+		<td colspan="2"></td>
+	 	<td><%= check_box("post", "validated",:onclick => "preparePage();")%>  Select for practice</td>
+	 </tr>
+	 <tr>
+	 	<td colspan="2"></td>
+	     <td><div id="tourSelection">
+	     	<%= check_box("post", "vali")%>Male
+		 	<%= check_box("post", "valida")%>Female</div>
+		 </td>
+	 </tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td align="center"> <%= image_submit_tag("1878759-submit-button.jpg",:height => '50', :width => '90') %></td>
+	</tr>
+	

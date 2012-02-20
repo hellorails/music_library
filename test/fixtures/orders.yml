@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  invoice_number: 1
+  created_on: 2011-12-24
+
+two:
+  invoice_number: 1
+  created_on: 2011-12-24

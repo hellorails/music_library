@@ -1,0 +1,43 @@
+<h1 align="center">Music Library Admin</h1>
+<h3>Welcome To Music Library Admin Area Select a link below to manage the Database Information</h6>
+	<h3>
+
+<table cellpadding="10" width="60%" align="center">
+	<tr>
+		<td></td>
+	</tr>
+	
+	<tr>
+		
+		<td align="left"><%= link_to("Manage Albums" , :action => "index", :controller => "albums") %></td>
+	
+	</tr>
+	
+	<tr>
+		<td align= "left"><%= link_to("Manage Artists" , :action => "index", :controller => "artists") %></td>
+	</tr>
+	
+	<tr>
+		<td align="left"><%= link_to("Manage Features" , :action => "index", :controller => "features") %></td>
+    </tr>
+	<tr>
+		<td align="left"><%= link_to("Manage Orders" , :action => "index", :controller => "orders") %></td>
+	</tr>
+	
+	<tr>
+		<td align="left"><%= link_to("Manage Customers" , :action => "index", :controller => "customers") %></td>
+	 </tr>
+	 <tr>
+		<td align="left"><%= link_to("Manage Users" , :action => "index", :controller => "users") %></td>
+
+	</tr>
+	 <tr>
+		<td align="left"><%= link_to("Manage public Users" , :action => "list", :controller => "public	") %></td>
+
+	</tr>
+	<tr>
+		<td> <%= link_to("Logout" , :action => "logout", :controller => "admin") %></td>
+	</tr>
+
+</table>
+</h3>

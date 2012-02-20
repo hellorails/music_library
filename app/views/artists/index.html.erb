@@ -1,0 +1,19 @@
+<table class="altrowstable" id="alternatecolor" width="60%">
+   <th>Id</th>
+   <th>Artist Name</th>
+   <th>Active Users</th>
+   <th>Biography</th>
+   <th colspan="2">Options</th>
+<% for artist in @artists %>
+<tr class="<%= cycle('even', 'odd')%>" >
+	<td><%= artist.id %></td>
+	<td><%= artist.name %></td>
+	<td><%= artist.active_users %></td>
+	<td><%= artist.biography%></td>
+	<td><b><%= link_to("Edit",:action => 'edit',:id => artist.id)%></b></td>
+	<td><b><%= link_to ('Destroy', :confirm => 'Are you sure?', :action => 'delete',:id => artist.id) %></b></td>
+</tr>
+<% end %>
+</table>
+<br>
+<div align="left"><b><%= link_to("New artist",:action => 'new', :car => "dev")%></b></div>

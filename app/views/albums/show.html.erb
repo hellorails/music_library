@@ -1,0 +1,12 @@
+			
+			<div align="left">
+			ID:<%=@album.id%><br><br>
+			 Tittle:<%= @album.tittle%>	<br><br>		
+			Artist:<u><%= link_to(@album.artist.name,:action => 'show',:controller => "artists",:id => @album.artist.id)%></u><br>	<br>		
+			Release Date:<%= @album.release_date%>	<br><br>		
+			Genere:<%= @album.genere%>			<br><br>
+			Features:<%= @album.features.collect{|obj| obj.name + "<br>"} if !@album.features.empty? -%><br><br>			
+		   <b><%= link_to("Edit",:action => 'edit',:id => @album.id)%></b>
+		   <b><%= link_to ('Back', :action => 'index',:id => @album.id) %></b></td>
+
+		  </div>

@@ -1,0 +1,10 @@
+<% form_tag :action=> 'create' do -%>
+<div class="box">  
+<%= error_messages_for :album %>
+<%= render :partial => 'albums/form'%>
+</div>
+ <% end -%>
+
+
+
+
